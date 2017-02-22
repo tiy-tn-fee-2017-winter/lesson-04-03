@@ -11,6 +11,11 @@ export default function reducer(state, action) {
     // READ: Loading all snacks
     case 'SNACK@FIND_ALL':
       return { snacks: action.data };
+    case 'SNACK@BEST_CEREAL':
+      return action.data;
+    case 'SNACK@SET_CEREAL':
+      return action.data.snacks;
+
     default:
       return state || { snacks: [] };
   }

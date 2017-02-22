@@ -26,9 +26,25 @@ module('reducer', () => {
     const actionOne = { type: 'SNACK@CREATE', data: { name: 'Luna Bar' } };
     const actionTwo = { type: 'SNACK@CREATE', data: { name: 'Clif Bar' } };
 
+
+
     assert.deepEqual(reducer(emptyState, actionOne), { snacks: [actionOne.data] });
     assert.deepEqual(reducer(emptyState, actionTwo), { snacks: [actionTwo.data] });
 
     assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, { name: 'Doritos' }] });
   });
 });
+
+test('track best cereal', (assert) => {
+  const bestCereal =  { snacks: null };
+  const actionOne = {type: 'SNACK@BEST_CEREAL', data: null}
+
+  assert.deepEqual(reducer(bestCereal, actionOne), null);
+})
+
+test('testing to see if best cereal SETS', (assert) => {
+  const oldState = { snacks: null };
+  const actionOne = { type: 'SNACK@SET_CEREAL', data: { snacks: 'Smores' } };
+
+  assert.deepEqual(reducer(oldState, actionOne), 'Smores')
+})
