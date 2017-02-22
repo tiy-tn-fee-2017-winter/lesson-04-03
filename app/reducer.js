@@ -5,7 +5,7 @@
  */
 export default function reducer(state, action) {
   switch (action.type) {
-    // CREATE: Add a new snac
+    // CREATE: Add a new snack
     case 'SNACK@CREATE':
       return { snacks: [action.data, ...state.snacks] };
     // READ: Loading all snacks
