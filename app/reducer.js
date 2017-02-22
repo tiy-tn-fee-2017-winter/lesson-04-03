@@ -5,14 +5,14 @@
  */
 export default function reducer(state, action) {
   switch (action.type) {
-    case 'BEST_CEREAL':
-      return {};
     // CREATE: Add a new snack
     case 'SNACK@CREATE':
       return { snacks: [action.data, ...state.snacks] };
     // READ: Loading all snacks
     case 'SNACK@FIND_ALL':
       return { snacks: action.data };
+    case 'BEST_CEREAL':
+      return { cereal: action.data };
     default:
       return state || { snacks: [], cereal: null };
   }
