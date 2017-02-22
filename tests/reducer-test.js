@@ -13,7 +13,7 @@ module('reducer', () => {
     assert.deepEqual(reducer(oldState, actionOne), { snacks: actionOne.data });
     assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
   });
-
+// change
   test('load all snacks with old snacks', (assert) => {
     const oldState = { snacks: [] };
     const existingList = { snacks: [9, 5] };
