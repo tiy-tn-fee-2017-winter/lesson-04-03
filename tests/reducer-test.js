@@ -6,12 +6,12 @@ module('reducer', () => {
   });
 
   test('load all snacks', (assert) => {
-    const oldState = { snacks: [] };
-    const actionOne = { type: 'SNACK@FIND_ALL', data: [1, 2, 3] };
-    const actionTwo = { type: 'SNACK@FIND_ALL', data: [{ name: 'Luna Bar' }] };
+    const oldState = { snacks: [{ name: 'tabs' }] };
+    const actionOne = { type: 'SNACK@FIND_ALL', data: { name: 'spaces' } };
+    const actionTwo = { type: 'SNACK@FIND_ALL', data: { name: 'Luna Bar' } };
 
-    assert.deepEqual(reducer(oldState, actionOne), { snacks: actionOne.data });
-    assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
+    assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, ...oldState.snacks] });
+    assert.deepEqual(reducer(oldState, actionTwo), { snacks: [actionTwo.data, ...oldState.snacks] });
   });
 
   test('add a snack', (assert) => {
@@ -25,4 +25,18 @@ module('reducer', () => {
 
     assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, { name: 'Doritos' }] });
   });
+});
+
+test('default cereal', (assert) => {
+  const emptyState = { bestCereal: null };
+  const actionOne = { type: 'BEST_CEREAL@FIND' };
+  assert.equal(reducer(emptyState, actionOne), null);
+});
+
+test('set best cereal', (assert) => {
+  const emptyState = { bestCereal: null };
+  const actionOne = { type: 'BEST_CEREAL@SET', data: { bestCereal: 'Frosted Flakes' } };
+  const actionTwo = { type: 'BEST_CEREAL@SET', data: { bestCereal: 'Capn Crunch' } };
+  assert.equal(reducer(emptyState, actionOne), 'Frosted Flakes');
+  assert.equal(reducer(emptyState, actionTwo), 'Capn Crunch');
 });
