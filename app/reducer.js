@@ -4,21 +4,19 @@
  * @return {Object} new state { snacks: [...] }
  */
 export default function reducer(state, action) {
-
-  // CREATE: Add a new snack
-  if (action.type === 'SNACK@CREATE') {
-    return { snacks: [action.data, ...state.snacks] };
-  }
-
-  // READ: Loading all snacks
-  if (action.type === 'SNACK@FIND_ALL') {
-    return { snacks: action.data };
+  switch (action.type) {
+    // CREATE: Add a new snack
+    case 'SNACK@CREATE':
+      return { snacks: [action.data, ...state.snacks] };
+    // READ: Loading all snacks
+    case 'SNACK@FIND_ALL':
+      return { snacks: action.data };
+    default:
+      return state || { snacks: [] };
   }
   // READ: Load a single snack
   // UPDATE: Update the data for a single snack
   // DESTROY: Remove a snack from the list
-
-  return state || { snacks: [] };
 }
 
 
