@@ -7,11 +7,16 @@ module('reducer', () => {
 
   test('load all snacks', (assert) => {
     const oldState = { snacks: [] };
+    const olderState = { snacks: [{ name: 'Hersheys' }] };
+
     const actionOne = { type: 'SNACK@FIND_ALL', data: [1, 2, 3] };
     const actionTwo = { type: 'SNACK@FIND_ALL', data: [{ name: 'Luna Bar' }] };
 
+
     assert.deepEqual(reducer(oldState, actionOne), { snacks: actionOne.data });
     assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
+
+    assert.deepEqual(reducer(olderState, actionOne), { snacks: [1, 2, 3, { name: 'Hersheys' }] });
   });
 
   test('add a snack', (assert) => {
@@ -25,4 +30,9 @@ module('reducer', () => {
 
     assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, { name: 'Doritos' }] });
   });
+
+  test('track best cereals', (assert) => {
+    const bestCereal = { cereal: [] };
+
+  })
 });
