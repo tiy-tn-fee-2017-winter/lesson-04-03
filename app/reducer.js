@@ -1,4 +1,4 @@
-/**
+  /**
  * @param  {Object} state  Old state from the app
  * @param  {Object} action Redux action (I hope it has a "type" and "data")
  * @return {Object} new state { snacks: [...] }
