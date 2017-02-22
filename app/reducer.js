@@ -5,6 +5,8 @@
  */
 export default function reducer(state, action) {
   switch (action.type) {
+    case 'BEST_CEREAL':
+      return {};
     // CREATE: Add a new snack
     case 'SNACK@CREATE':
       return { snacks: [action.data, ...state.snacks] };
@@ -12,7 +14,7 @@ export default function reducer(state, action) {
     case 'SNACK@FIND_ALL':
       return { snacks: action.data };
     default:
-      return state || { snacks: [] };
+      return state || { snacks: [], cereal: null };
   }
   // READ: Load a single snack
   // UPDATE: Update the data for a single snack

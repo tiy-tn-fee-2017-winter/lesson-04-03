@@ -2,7 +2,7 @@ import reducer from '../app/reducer';
 
 module('reducer', () => {
   test('default state', (assert) => {
-    assert.deepEqual(reducer(null, {}), { snacks: [] }, 'default state');
+    assert.deepEqual(reducer(null, {}), { snacks: [], cereal: null }, 'default state');
   });
 
   test('load all snacks', (assert) => {
@@ -33,6 +33,7 @@ module('reducer', () => {
     const bestCereal = { cereal: null };
     const actionOne = { type: 'BEST_CEREAL', data: { name: 'Oatmeal' } };
 
-    assert.deepEqual(reducer(bestCereal, actionOne), { cereal: null });
+
+    assert.deepEqual(reducer(bestCereal, actionOne), { cereal: { name: 'Oatmeal' } });
   });
 });
