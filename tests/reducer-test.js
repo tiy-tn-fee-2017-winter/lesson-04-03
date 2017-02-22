@@ -10,8 +10,8 @@ module('reducer', () => {
     const actionOne = { type: 'SNACK@FIND_ALL', data: [1, 2, 3] };
     const actionTwo = { type: 'SNACK@FIND_ALL', data: [{ name: 'Luna Bar' }] };
 
-    assert.deepEqual(reducer(oldState, actionOne), { snacks: [1, 2, 3] });
-    assert.deepEqual(reducer(oldState, actionTwo), { snacks: [{ name: 'Luna Bar' }] });
+    assert.deepEqual(reducer(oldState, actionOne), { snacks: actionOne.data });
+    assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
   });
 
   test('add a snack', (assert) => {
@@ -20,9 +20,9 @@ module('reducer', () => {
     const actionOne = { type: 'SNACK@CREATE', data: { name: 'Luna Bar' } };
     const actionTwo = { type: 'SNACK@CREATE', data: { name: 'Clif Bar' } };
 
-    assert.deepEqual(reducer(emptyState, actionOne), { snacks: [{ name: 'Luna Bar' }] });
-    assert.deepEqual(reducer(emptyState, actionTwo), { snacks: [{ name: 'Clif Bar' }] });
+    assert.deepEqual(reducer(emptyState, actionOne), { snacks: [actionOne.data] });
+    assert.deepEqual(reducer(emptyState, actionTwo), { snacks: [actionTwo.data] });
 
-    assert.deepEqual(reducer(oldState, actionOne), { snacks: [{ name: 'Luna Bar' }, { name: 'Doritos' }] });
+    assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, { name: 'Doritos' }] });
   });
 });
