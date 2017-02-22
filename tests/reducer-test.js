@@ -28,4 +28,11 @@ module('reducer', () => {
 
     assert.deepEqual(reducer(oldState, actionOne), { snacks: [actionOne.data, { name: 'Doritos' }] });
   });
+
+  test('trackBestCereal', (assert) => {
+    const bestCereal = { cereal: null };
+    const actionOne = { type: 'BEST_CEREAL', data: { name: 'Oatmeal' } };
+
+    assert.deepEqual(reducer(bestCereal, actionOne), { cereal: null });
+  });
 });
