@@ -1,4 +1,5 @@
 // app/controller/app.js
+import SnackFormView from '../view/snack-form';
 
 export default class AppController {
   constructor(el, store) {
@@ -6,6 +7,7 @@ export default class AppController {
     this.store = store;
 
     // Maybe initialize some other classes/objects
+    this.snackForm = new SnackFormView(this.el.querySelector('.snack-form'), this.store);
   }
 
   // We'll manually fire this when the app is done being created
@@ -23,5 +25,6 @@ export default class AppController {
     this.store.dispatch({ type: 'SNACK@FIND_ALL', data: JSON.parse(dataString) });
 
     // "mount" (Start up) views
+    this.snackForm.mounted();
   }
 }
