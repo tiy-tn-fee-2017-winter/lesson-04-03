@@ -6,7 +6,7 @@ class ItemView {
     this.el = document.createElement('li');
     this.el.classList.add('grid__item');
     this.el.innerHTML = `
-    <div class="snack-card snack-card--garbage">
+    <div class="snack-card">
       <h2 class="snack-card__name"></h2>
 
       <p class="snack-card__taste">Taste 5/10</p>
@@ -24,6 +24,15 @@ class ItemView {
     this.el.querySelector('.snack-card__texture').innerText = `Texture ${this.data.texture}/10`;
 
     // Maybe change the color of the card with MATHS!!!
+    const score = (parseInt(this.data.taste) + parseInt(this.data.sweetness) + parseInt(this.data.texture)) / 3;
+
+    if (score < 5) {
+      this.el.querySelector('.snack-card').classList.toggle('snack-card--garbage');
+    } else if (score < 8) {
+      this.el.querySelector('.snack-card').classList.toggle('snack-card--average');
+    } else {
+      this.el.querySelector('.snack-card').classList.toggle('snack-card--excellent');
+    }
   }
 }
 
