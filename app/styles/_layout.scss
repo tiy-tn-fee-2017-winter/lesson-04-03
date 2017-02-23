@@ -1,0 +1,25 @@
+.section {
+  padding: $m-gutter;
+}
+
+.container {
+  max-width: 65rem;
+  margin: auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$m-gutter);
+
+  &__item {
+    flex-basis: calc(100% / 2 - #{$m-gutter} - #{$m-gutter});
+    flex-grow: 1;
+    margin: $m-gutter;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}

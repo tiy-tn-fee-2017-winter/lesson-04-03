@@ -1,0 +1,26 @@
+.snack-form {
+  padding: $m-gutter;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(black, 0.2);
+  background: #fff;
+
+  > * + * {
+    margin-top: $m-gutter;
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: ($m-gutter / 2) 0;
+  border: 0;
+  border-bottom: 0.1rem solid #aaa;
+  outline: none;
+  font: inherit;
+
+  &:focus {
+    border-bottom-color: #1153b5;
+  }
+}

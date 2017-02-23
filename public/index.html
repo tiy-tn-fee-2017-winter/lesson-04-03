@@ -6,6 +6,59 @@
   <link rel="stylesheet" href="/app.css">
 </head>
 <body>
+  <div class="app">
+    <div class="section">
+      <div class="container">
+        <form class="snack-form">
+          <div class="control">
+            <input type="text" class="input snack-form__name" placeholder="Name">
+          </div>
+
+          <div class="control">
+            <label class="label">Taste</label>
+            <input type="range" min="0" max="10" class="slider snack-form__taste">
+          </div>
+
+          <div class="control">
+            <label class="label">Sweetness</label>
+            <input type="range" min="0" max="10" class="slider snack-form__sweetness">
+          </div>
+
+          <div class="control">
+            <label class="label">Texture</label>
+            <input type="range" min="0" max="10" class="input snack-form__texture">
+          </div>
+
+          <div class="action-bar">
+            <button class="button button--cancel snack-form__cancel" type="button">Reset</button>
+            <button class="button button--primary snack-form__submit">Submit</button>
+          </div>
+        </form>
+
+        <ul class="grid">
+          <li class="grid__item">
+            <div class="snack-card snack-card--garbage">
+              <h2 class="snack-card__name">SpongeBob Fruit Snax</h2>
+
+              <p class="snack-card__taste">Taste 5/10</p>
+              <p class="snack-card__sweetness">Sweetness 5/10</p>
+              <p class="snack-card__texture">Texture 5/10</p>
+            </div>
+          </li>
+          <li class="grid__item">
+            <div class="snack-card snack-card--excellent">
+              <h2 class="snack-card__name">Welches Fruit Snax</h2>
+
+              <p class="snack-card__taste">Taste 10/10</p>
+              <p class="snack-card__sweetness">Sweetness 10/10</p>
+              <p class="snack-card__texture">Texture 10/10</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <script src="/app.js" charset="utf-8"></script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+.snack-card {
+  padding: $m-gutter;
+  background: #fff;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(black, 0.2);
+
+
+
+
+
+
+  &--average {
+    background: #feee81;
+  }
+
+  &--excellent {
+    background: #4ecd93;
+  }
+
+  &--garbage {
+    background: hsl(37,58%,36%);
+  }
+}

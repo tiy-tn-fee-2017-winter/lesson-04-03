@@ -3,4 +3,28 @@
 
 // $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 // @import 'font-awesome';
+
+$m-gutter: 1rem;
+
 @import 'box-sizing';
+@import 'reset';
+@import 'layout';
+@import 'forms';
+@import 'snack-card';
+
+.button {
+  padding: 1rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: #fff;
+  font: inherit;
+
+  &--primary {
+    background: #207da4;
+    color: #fff;
+  }
+
+  &--cancel {
+    background: #ddd;
+  }
+}
