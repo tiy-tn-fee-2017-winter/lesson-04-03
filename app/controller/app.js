@@ -1,5 +1,6 @@
 // app/controller/app.js
 import SnackFormView from '../view/snack-form';
+import SnackListView from '../view/snack-list';
 
 export default class AppController {
   constructor(el, store) {
@@ -8,6 +9,7 @@ export default class AppController {
 
     // Maybe initialize some other classes/objects
     this.snackForm = new SnackFormView(this.el.querySelector('.snack-form'), this.store);
+    this.snackList = new SnackListView(this.el.querySelector('.grid'), this.store);
   }
 
   // We'll manually fire this when the app is done being created
@@ -19,12 +21,13 @@ export default class AppController {
       window.localStorage.snacks = JSON.stringify(snacks);
     });
 
+    // "mount" (Start up) views
+    this.snackForm.mounted();
+    this.snackList.mounted();
+
     // Get the stringified list of snacks or a default of an empty array
     const dataString = window.localStorage.snacks || '[]';
     // Dispatch FIND_ALL to the store with the data loaded from localstorage
     this.store.dispatch({ type: 'SNACK@FIND_ALL', data: JSON.parse(dataString) });
-
-    // "mount" (Start up) views
-    this.snackForm.mounted();
   }
 }
