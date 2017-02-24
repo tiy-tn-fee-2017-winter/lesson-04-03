@@ -1,4 +1,4 @@
-/**
+  /**
  * @param  {Object} state  Old state from the app
  * @param  {Object} action Redux action (I hope it has a "type" and "data")
  * @return {Object} new state { snacks: [...] }
@@ -11,8 +11,10 @@ export default function reducer(state, action) {
     // READ: Loading all snacks
     case 'SNACK@FIND_ALL':
       return { snacks: action.data };
+    case 'BEST_CEREAL':
+      return { cereal: action.data };
     default:
-      return state || { snacks: [] };
+      return state || { snacks: [], cereal: null };
   }
   // READ: Load a single snack
   // UPDATE: Update the data for a single snack
