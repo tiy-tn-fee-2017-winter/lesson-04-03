@@ -14,6 +14,17 @@ module('reducer', () => {
     assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
   });
 
+  test('load all snacks with old snacks', (assert) => {
+    const oldState = { snacks: [] };
+    const existingList = { snacks: [9, 5] };
+    const actionOne = { type: 'SNACK@FIND_ALL', data: [1, 2, 3] };
+    const actionTwo = { type: 'SNACK@FIND_ALL', data: [{ name: 'Luna Bar' }] };
+
+    assert.deepEqual(reducer(oldState, actionOne), { snacks: actionOne.data });
+    assert.deepEqual(reducer(oldState, actionTwo), { snacks: actionTwo.data });
+    assert.deepEqual(reducer(existingList, actionOne), { snacks: existingList.snacks + actionOne.data });
+  });
+
   test('add a snack', (assert) => {
     const emptyState = { snacks: [] };
     const oldState = { snacks: [{ name: 'Doritos' }] };
